@@ -1,33 +1,38 @@
 import React, { useContext, useEffect, useState } from 'react'
 
+import ExpensesSelect from './Elements/ExpensesSelect';
+import {estimateContext} from '../context/estimates/EstimateProvider';
+import ExpensesForm from './Elements/ExpensesForm';
 
-import {estimateContext} from '../context/EstimateProvider';
 
 const Expenses = () => {
 
-  const {estimates} = useContext(estimateContext)
- console.log(estimates);
+  const { estimateSelected } = useContext(estimateContext);
+  const [estimate] = estimateSelected;
     return (
       <div className="expenses_container">
         <h2>Gatos</h2>
         
-          <select>
+          <div className="expenses_select">
+            <ExpensesSelect/>
+          </div>
+
+          
             {
-              estimates.length === 0 || estimates.length === undefined
-                ?
-                (<option>Seleccione...</option>)
-                :
-                  estimates.map(element => {
-  
-                    let fecha = new Date(element.date_start.replace(/-+/g, '/'));
-                    return(
-                      <option>
-                          {fecha.toLocaleString('es-CO', {month: 'long'})}   
-                      </option>
-                    )
-                  })
+                (estimateSelected.length !== 0 )  
+                  &&
+               <>   
+                 <div className="expenses_period-selected"> 
+                      <div>Inicio: {estimate.date_start}</div>
+                      <div>Fin: {estimate.date_end}</div>
+                      <div>Presupuesto: {estimate.estimate}</div>
+                 </div>
+
+                 <ExpensesForm/>
+              </>
             }
-          </select>
+
+          
          
       </div>
     )

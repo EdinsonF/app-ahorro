@@ -1,16 +1,19 @@
 import './App.css';
 
-import EstimateProvider from './context/EstimateProvider';
+import EstimateProvider from './context/estimates/EstimateProvider';
 import Estimate from "./Components/Estimate";
 import Expenses from './Components/Expenses';
+import { ExpensesProvider } from './context/expenses/ExpensesProvider';
 
 function App() {
   return (
 
       <div className="container">
         <EstimateProvider>
-          <Estimate/>
-          <Expenses/>
+          <ExpensesProvider>
+            <Estimate/>
+            <Expenses/>
+          </ExpensesProvider>
         </EstimateProvider>
     </div>
   );

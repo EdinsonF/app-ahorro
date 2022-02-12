@@ -39,6 +39,7 @@
 
 /* CUSTOM */
 
+
 .estimate_container , .expenses_container {
   border: 1px solid;
   padding: 20px;
@@ -46,3 +47,24 @@
   margin-bottom: 20px;
 }
 
+
+
+/* expenses component */
+.expenses_select{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.expenses_period-selected{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+}
+
+.form_input-cantidad{
+  width: 30px;
+}
+
+/* ----------------------------- */

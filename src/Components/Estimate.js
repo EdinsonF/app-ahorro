@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 
-import {estimateContext} from '../context/EstimateProvider';
+import {estimateContext} from '../context/estimates/EstimateProvider';
 const Estimate = () => {
 
   const {sendEstimate_fn} = useContext(estimateContext)
